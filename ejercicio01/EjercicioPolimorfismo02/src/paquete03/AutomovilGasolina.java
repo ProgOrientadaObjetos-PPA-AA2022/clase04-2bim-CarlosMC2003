@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 package paquete03;
-
+import paquete02.Automovil;
 /**
  *
  * @author reroes
  */
-public class AutomovilGasolina {
+public class AutomovilGasolina extends Automovil{
     
 }
