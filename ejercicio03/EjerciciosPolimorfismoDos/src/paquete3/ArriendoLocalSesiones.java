@@ -6,6 +6,7 @@
 package paquete3;
 
 import paquete2.Arriendo;
+import paquete2.Propietario;
 
 /**
  *
@@ -15,8 +16,14 @@ public class ArriendoLocalSesiones extends Arriendo{
     protected double valorSillas;
     protected double valorAmplificacion;
     
-    public ArriendoLocalSesiones(String nombre, double cuotaB){
-        super(nombre, cuotaB);
+    public ArriendoLocalSesiones(Propietario arre, double cuotaB){
+        super(arre, cuotaB);
+    }
+    
+    public ArriendoLocalSesiones(Propietario arre, double cuotaB, double valSillas, double valAmpli){
+        super(arre, cuotaB);
+        valorSillas = valSillas;
+        valorAmplificacion = valAmpli;
     }
     
     public void establecerValorSillas(double x){
@@ -45,11 +52,15 @@ public class ArriendoLocalSesiones extends Arriendo{
     public String toString(){
         String cadena = String.format("Ariendo de Local Sesiones\n"
                 + "Nombre Arrendatario: %s\n"
+                + "Apellido Arrendatario: %s\n"
+                + "Edad Arrendatario: %d\n"
                 + "Cuota base: %.2f\n"
                 + "Valor sillas: %.2f\n"
                 + "Valor amplificacion: %.2f\n"
                 + "Arriendo Total: %.2f\n", 
-                obtenerNombreArrendatario(),
+                obtenerArrendatario().obtenerNombrePropietario(),
+                obtenerArrendatario().obtenerApelldoPropietario(),
+                obtenerArrendatario().obtenerEdadPropietario(),
                 obtenerCuotaBase(),
                 obtenerValorSillas(),
                 obtenerValorAmplificacion(),

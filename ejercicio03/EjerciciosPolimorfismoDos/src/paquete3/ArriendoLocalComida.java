@@ -6,6 +6,7 @@
 package paquete3;
 
 import paquete2.Arriendo;
+import paquete2.Propietario;
 /**
  *
  * @author reroes
@@ -15,13 +16,13 @@ public class ArriendoLocalComida extends Arriendo {
     private double valorAgua;
     private double iva;
     
-    public ArriendoLocalComida(String nombre, double cuotaB){
-        super(nombre, cuotaB);
+    public ArriendoLocalComida(Propietario arre, double cuotaB){
+        super(arre, cuotaB);
     }
     
-    public ArriendoLocalComida(String nombre, double cuotaB, double vl, 
+    public ArriendoLocalComida(Propietario arre, double cuotaB, double vl, 
             double va, double iv){
-        super(nombre, cuotaB);
+        super(arre, cuotaB);
         valorAgua = va;
         valorLuz = vl;
         iva = iv;
@@ -62,12 +63,16 @@ public class ArriendoLocalComida extends Arriendo {
     public String toString(){
         String cadena = String.format("Ariendo de Local Comida\n"
                 + "Nombre Arrendatario: %s\n"
+                + "Apellido Arrendatario: %s\n"
+                + "Edad Arrendatario: %d\n"
                 + "Cuota base: %.2f\n"
                 + "Valor luz: %.2f\n"
                 + "Valor agua: %.2f\n"
                 + "Porcentaje iva: %.2f\n"
                 + "Arriendo Total: %.2f\n", 
-                obtenerNombreArrendatario(),
+                obtenerArrendatario().obtenerNombrePropietario().toLowerCase(),
+                obtenerArrendatario().obtenerApelldoPropietario(),
+                obtenerArrendatario().obtenerEdadPropietario(),
                 obtenerCuotaBase(),
                 obtenerValorLuz(),
                 obtenerValorAgua(),
